@@ -42,6 +42,16 @@
 			enable-active-high;
 		};
 
+		/* regulator1 for pcie power-on-gpio */
+		pcie_power_on_gpio: regulator-pcie-power-on-gpio {
+			compatible = "regulator-fixed";
+			regulator-name = "regulator-pcie-power-on-gpio";
+			regulator-min-microvolt = <3300000>;
+			regulator-max-microvolt = <3300000>;
+			gpio = <&gpio2 24 0>;
+			enable-active-high;
+		};
+
 		/* regulator for usb hub1 */
 		reg_usb_h1_vbus: usb_h1_vbus {
 			compatible = "regulator-fixed";
@@ -445,7 +455,7 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_pcie>;
 	reset-gpio = <&gpio1 26 0>;
-	power-on-gpio = <&gpio2 24 0>;
+	vdd-supply = <&pcie_power_on_gpio>;
 	status = "okay";
 };
 
