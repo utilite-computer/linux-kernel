@@ -20,6 +20,10 @@
    compatible = "compulab,cm-fx6", "compulab,sbc-fx6", "fsl,imx6q";
 };
 
+&i2c1 {
+	status = "okay";
+};
+
 &usdhc3 {
 	status = "okay";
 };
