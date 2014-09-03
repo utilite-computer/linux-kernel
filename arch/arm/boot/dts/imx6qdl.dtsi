@@ -823,6 +823,7 @@
 				interrupts = <0 118 0x04 0 119 0x04>;
 				clocks = <&clks 117>, <&clks 117>, <&clks 190>;
 				clock-names = "ipg", "ahb", "ptp";
+				local-mac-address = [FF FF FF FF FF FF];
 				status = "disabled";
 			};
 
