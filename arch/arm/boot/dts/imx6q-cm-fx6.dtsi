@@ -380,6 +380,23 @@
 	};
 };
 
+&cpu0 {
+	operating-points = <
+		/* kHz    uV */
+		996000  1250000
+		852000  1250000
+		792000  1150000
+		396000  975000
+	>;
+	fsl,soc-operating-points = <
+		/* ARM kHz  SOC-PU uV */
+		996000        1250000
+		852000        1250000
+		792000        1175000
+		396000        1175000
+	>;
+};
+
 /* spi */
 &ecspi1 {
 	fsl,spi-num-chipselects = <2>;
