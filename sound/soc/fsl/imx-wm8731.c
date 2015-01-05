@@ -14,17 +14,12 @@
  */
 
 #include <linux/module.h>
+#include <linux/of.h>
 #include <linux/of_platform.h>
 #include <linux/of_i2c.h>
-#include <linux/of_gpio.h>
-#include <linux/slab.h>
-#include <linux/gpio.h>
 #include <linux/clk.h>
 #include <sound/soc.h>
-#include <sound/jack.h>
 #include <sound/pcm_params.h>
-#include <sound/soc-dapm.h>
-#include <linux/pinctrl/consumer.h>
 
 #include "../codecs/wm8731.h"
 #include "imx-audmux.h"
@@ -344,7 +339,7 @@ static int imx_hifi_hw_params_slv_mode(struct snd_pcm_substream *substream,
 				     SND_SOC_CLOCK_IN);
 
 	if (ret < 0) {
-		pr_err("Failed to set codec master clock to %u: %d \n",
+		pr_err("Failed to set codec master clock to %lu: %d \n",
 		       data->sysclk, ret);
 		return ret;
 	}
@@ -401,7 +396,7 @@ static int imx_hifi_hw_params_mst_mode(struct snd_pcm_substream *substream,
 				     SND_SOC_CLOCK_IN);
 
 	if (ret < 0) {
-		pr_err("Failed to set codec master clock to %u: %d \n",
+		pr_err("Failed to set codec master clock to %lu: %d \n",
 		       data->sysclk, ret);
 		return ret;
 	}
@@ -555,7 +550,7 @@ static int imx_wm8731_probe(struct platform_device *pdev)
 	}
         
 	codec_dev = of_find_i2c_device_by_node(codec_np);
-	if (!codec_dev || !codec_dev->driver) {
+	if (!codec_dev) {
 		dev_err(&pdev->dev, "failed to find codec platform device\n");
 		ret = -EINVAL;
 		goto fail;
