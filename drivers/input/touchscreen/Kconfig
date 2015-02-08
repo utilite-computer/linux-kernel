@@ -909,4 +909,14 @@ config TOUCHSCREEN_TPS6507X
 	  To compile this driver as a module, choose M here: the
 	  module will be called tps6507x_ts.
 
+config TOUCHSCREEN_HIMAX
+	tristate "Himax touchscreen support"
+	depends on I2C
+	help
+	  Say Y here if you have a Himax touchscreen and your
+	  board-specific setup code includes that in its table
+	  of I2C devices.
+
+	  If unsure, say N.
+
 endif
