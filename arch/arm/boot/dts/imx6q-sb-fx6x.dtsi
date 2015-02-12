@@ -32,6 +32,9 @@
 };
 
 &iomuxc {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_hog>, <&pinctrl_dvi0>;
+
 	imx6q-sb-fx6x {
 		/* pins for i2c1 */
 		pinctrl_i2c1: i2c1grp {
@@ -50,6 +53,16 @@
 				MX6QDL_PAD_SD3_DAT1__SD3_DATA1 0x17059
 				MX6QDL_PAD_SD3_DAT2__SD3_DATA2 0x17059
 				MX6QDL_PAD_SD3_DAT3__SD3_DATA3 0x17059
+			>;
+		};
+
+		/* pins for dvi/ts */
+		pinctrl_dvi0: dvi0grp {
+			fsl,pins = <
+				/* DVI_DDC_SEL */
+				MX6QDL_PAD_GPIO_2__GPIO1_IO02 0x80000000
+				/* SB-FX6 Himax TS PENDOWN or SB-FX6m DVI HPD */
+				MX6QDL_PAD_GPIO_4__GPIO1_IO04 0x80000000
 			>;
 		};
 	};
