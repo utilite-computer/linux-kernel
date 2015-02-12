@@ -47,5 +47,6 @@
 };
 
 &mxcfb2 {
+	mode_str ="KD050C-WVGA";
 	status = "okay";
 };
