@@ -18,6 +18,14 @@
 / {
    model = "CompuLab CM-FX6 on SBC-FX6";
    compatible = "compulab,cm-fx6", "compulab,sbc-fx6", "fsl,imx6q";
+
+	backlight {
+		compatible = "pwm-backlight";
+		pwms = <&pwm3 0 5000000>;
+		brightness-levels = <0 4 8 16 32 64 128 255>;
+		default-brightness-level = <7>;
+	};
+
 };
 
 &i2c1 {
@@ -25,5 +33,11 @@
 };
 
 &usdhc3 {
+	status = "okay";
+};
+
+&pwm3 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_pwm3_1>;
 	status = "okay";
 };
