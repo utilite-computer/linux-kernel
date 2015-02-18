@@ -41,3 +41,11 @@
 	pinctrl-0 = <&pinctrl_pwm3_1>;
 	status = "okay";
 };
+
+&mxcfb1 {
+	status = "okay";
+};
+
+&mxcfb2 {
+	status = "okay";
+};

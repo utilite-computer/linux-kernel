@@ -58,3 +58,11 @@
 	fsl,uart-has-rtscts;
 	status = "okay";
 };
+
+&mxcfb1 {
+	status = "okay";
+};
+
+&mxcfb2 {
+	status = "okay";
+};
