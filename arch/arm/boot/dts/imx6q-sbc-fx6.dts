@@ -12,7 +12,7 @@
 */
 
 /dts-v1/;
-#include "imx6q-sb-fx6x.dtsi"
+#include "imx6q-sb-fx6.dtsi"
 #include "imx6q-cm-fx6.dtsi"
 
 / {

@@ -59,11 +59,7 @@
 &i2c1 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_i2c1>;
-	eeprom@50 {
-		compatible = "at24,24c02";
-		reg = <0x50>;
-		pagesize = <16>;
-	};
+	status = "disabled";
 };
 
 /* mmc */
