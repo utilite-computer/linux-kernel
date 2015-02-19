@@ -239,9 +239,6 @@
 				MX6QDL_PAD_EIM_D23__GPIO3_IO23 0x80000000
 				/* POWER_BUTTON */
 				MX6QDL_PAD_ENET_TXD1__GPIO1_IO29 0x80000000
-				/* WIFI_PWR_RST */
-				MX6QDL_PAD_GPIO_17__GPIO7_IO12	0x80000000
-				MX6QDL_PAD_NANDF_CS3__GPIO6_IO16 0x80000000
 			>;
 		};
 	};
@@ -384,6 +381,15 @@
 				MX6QDL_PAD_SD1_DAT1__SD1_DATA1 0x17071
 				MX6QDL_PAD_SD1_DAT2__SD1_DATA2 0x17071
 				MX6QDL_PAD_SD1_DAT3__SD1_DATA3 0x17071
+			>;
+		};
+
+		/* pins for wifi/bt */
+		pinctrl_mrvl1: mrvl1grp {
+			fsl,pins = <
+				/* WIFI_PWR_RST */
+				MX6QDL_PAD_GPIO_17__GPIO7_IO12	0x80000000
+				MX6QDL_PAD_NANDF_CS3__GPIO6_IO16 0x80000000
 			>;
 		};
 
@@ -546,7 +552,7 @@
 /* wifi/bt */
 &usdhc1 {
 	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_usdhc1>;
+	pinctrl-0 = <&pinctrl_usdhc1>, <&pinctrl_mrvl1>;
 	non-removable;
 	vmmc-supply = <&awnh387_npoweron>;
 	vmmc_aux-supply = <&awnh387_wifi_nreset>;
