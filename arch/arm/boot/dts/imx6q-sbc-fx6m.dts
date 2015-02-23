@@ -19,6 +19,14 @@
 	model = "CompuLab CM-FX6 on SBC-FX6m";	
 	compatible = "compulab,cm-fx6", "compulab,sbc-fx6m", "fsl,imx6q";
 
+	iomux_uart2: pinmux@20E0924 {
+		compatible = "pinctrl-single";
+		reg = <0x20E0000 0x924>;	/* Single register */
+		#address-cells = <1>;
+		#size-cells = <0>;
+		pinctrl-single,register-width = <32>;
+		pinctrl-single,function-mask = <0x4>;
+	};
 };
 
 &iomuxc {
@@ -52,9 +60,6 @@
 &uart2 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart2>;
-	/* fsl,dte-mode; */
 	fsl,uart-has-rtscts;
-	dma-names = "rx", "tx";
-	dmas = <&sdma 27 4 0>, <&sdma 28 4 0>;
 	status = "okay";
 };
