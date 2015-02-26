@@ -50,3 +50,9 @@
 	mode_str ="KD050C-WVGA";
 	status = "okay";
 };
+
+&flexcan1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_flexcan1_1>;
+	status = "okay";
+};
