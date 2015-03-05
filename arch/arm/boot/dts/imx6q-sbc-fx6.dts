@@ -33,6 +33,7 @@
 };
 
 &usdhc3 {
+	wp-gpios = <&gpio7 0 0>;
 	status = "okay";
 };
 
