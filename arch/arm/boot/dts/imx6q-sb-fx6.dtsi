@@ -11,8 +11,6 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
-#include "imx6q-sb-fx6x.dtsi"
-
 / {
 	i2cmux {
 		compatible = "i2c-mux-gpio";

@@ -11,8 +11,6 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
-#include "imx6q-sb-fx6x.dtsi"
-
 / {
 	eth@pcie {
 		compatible = "intel,i211";
