@@ -14,8 +14,8 @@
 /dts-v1/;
 #include "imx6q.dtsi"
 #include "imx6q-cm-fx6.dtsi"
-#include "imx6q-sb-fx6x.dtsi"
-#include "imx6q-sb-fx6.dtsi"
+#include "imx6qdl-sb-fx6x.dtsi"
+#include "imx6qdl-sb-fx6.dtsi"
 
 / {
    model = "CompuLab CM-FX6 on SBC-FX6";
