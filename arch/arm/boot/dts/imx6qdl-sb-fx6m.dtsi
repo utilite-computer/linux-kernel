@@ -12,6 +12,15 @@
  */
 
 / {
+	iomux_uart2: pinmux@20E0924 {
+		compatible = "pinctrl-single";
+		reg = <0x20E0000 0x924>;	/* Single register */
+		#address-cells = <1>;
+		#size-cells = <0>;
+		pinctrl-single,register-width = <32>;
+		pinctrl-single,function-mask = <0x4>;
+	};
+
 	eth@pcie {
 		compatible = "intel,i211";
 		local-mac-address = [FF FF FF FF FF FF];
@@ -63,4 +72,42 @@
 			};
 		};
 	};
+};
+
+&iomuxc {
+	imx6q-sbc-fx6m {
+		/* pins for uart2 */
+		pinctrl_uart2: uart2grp {
+			fsl,pins = <
+				MX6QDL_PAD_GPIO_7__UART2_TX_DATA 0x1b0b1
+				MX6QDL_PAD_GPIO_8__UART2_RX_DATA 0x1b0b1
+				MX6QDL_PAD_SD4_DAT5__UART2_RTS_B 0x1b0b1
+				MX6QDL_PAD_SD4_DAT6__UART2_CTS_B 0x1b0b1
+		>;
+		};
+	};
+};
+
+&i2c1 {
+	status = "okay";
+};
+
+&usdhc3 {
+	status = "okay";
+};
+
+/* rear serial console */
+&uart2 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_uart2>;
+	fsl,uart-has-rtscts;
+	status = "okay";
+};
+
+&mxcfb1 {
+	status = "okay";
+};
+
+&mxcfb2 {
+	status = "okay";
 };

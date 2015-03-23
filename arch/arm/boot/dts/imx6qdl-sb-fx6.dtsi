@@ -12,6 +12,13 @@
  */
 
 / {
+	backlight {
+		compatible = "pwm-backlight";
+		pwms = <&pwm3 0 5000000>;
+		brightness-levels = <0 4 8 16 32 64 128 255>;
+		default-brightness-level = <7>;
+	};
+
 	i2cmux {
 		compatible = "i2c-mux-gpio";
 		#address-cells = <1>;
@@ -57,4 +64,34 @@
 		};
 
 	};
+};
+
+&i2c1 {
+	status = "okay";
+};
+
+&usdhc3 {
+	wp-gpios = <&gpio7 0 0>;
+	status = "okay";
+};
+
+&pwm3 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_pwm3_1>;
+	status = "okay";
+};
+
+&mxcfb1 {
+	status = "okay";
+};
+
+&mxcfb2 {
+	mode_str ="KD050C-WVGA";
+	status = "okay";
+};
+
+&flexcan1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_flexcan1_1>;
+	status = "okay";
 };
