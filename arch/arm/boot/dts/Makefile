@@ -113,6 +113,7 @@ dtb-$(CONFIG_ARCH_MXC) += \
 	imx53-mba53.dtb \
 	imx53-qsb.dtb \
 	imx53-smd.dtb \
+	imx6dl-cm-fx6.dtb \
 	imx6dl-sabreauto.dtb \
 	imx6dl-sabreauto-ecspi.dtb \
 	imx6dl-sabreauto-flexcan1.dtb \
@@ -121,8 +122,11 @@ dtb-$(CONFIG_ARCH_MXC) += \
 	imx6dl-sabresd-hdcp.dtb \
 	imx6dl-sabresd-ldo.dtb \
 	imx6dl-sabresd-pf200.dtb \
+	imx6dl-sbc-fx6.dtb \
+	imx6dl-sbc-fx6m.dtb \
 	imx6dl-wandboard.dtb \
 	imx6q-arm2.dtb \
+	imx6q-cm-fx6.dtb \
 	imx6q-sabreauto.dtb \
 	imx6q-sabreauto-ecspi.dtb \
 	imx6q-sabreauto-flexcan1.dtb \
@@ -131,6 +135,8 @@ dtb-$(CONFIG_ARCH_MXC) += \
 	imx6q-sabresd.dtb \
 	imx6q-sabresd-hdcp.dtb \
 	imx6q-sabresd-ldo.dtb \
+	imx6q-sbc-fx6.dtb \
+	imx6q-sbc-fx6m.dtb \
 	imx6q-sbc6x.dtb \
 	imx6sl-evk.dtb \
 	imx6sl-evk-csi.dtb \
