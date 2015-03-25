@@ -90,6 +90,24 @@
 	status = "okay";
 };
 
+&mxcfb3 {
+	status = "okay";
+};
+
+&mxcfb4 {
+	status = "okay";
+};
+
+&ldb {
+	ipu_id = <1>;
+	disp_id = <0>;
+	ext_ref = <1>;
+	mode = "sep0";
+	sec_ipu_id = <1>;
+	sec_disp_id = <1>;
+	status = "okay";
+};
+
 &flexcan1 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_flexcan1_1>;
