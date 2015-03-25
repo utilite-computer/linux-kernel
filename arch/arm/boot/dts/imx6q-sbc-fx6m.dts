@@ -21,3 +21,9 @@
 	model = "CompuLab CM-FX6 on SBC-FX6m";	
 	compatible = "compulab,cm-fx6", "compulab,sbc-fx6m", "fsl,imx6q";
 };
+
+&hdmi_core {
+	ipu_id = <1>;
+	disp_id = <0>;
+	status = "okay";
+};
