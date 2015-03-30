@@ -11,6 +11,10 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+#define MX6QDL_GPR1	0x04 0x04 0x000 0x0 0x0
+#define MX6QDL_GPR6	0x18 0x18 0x000 0x0 0x0
+#define MX6QDL_GPR7	0x1c 0x1c 0x000 0x0 0x0
+
 / {
 	memory {
 		reg = <0x10000000 0x20000000>;
@@ -187,6 +191,10 @@
 	hog {
 		pinctrl_hog: hoggrp {
 			fsl,pins = <
+				MX6QDL_GPR1 0x48400005
+				/* ipu3 QoS */
+				MX6QDL_GPR6 0x007f007f
+				MX6QDL_GPR7 0x007f007f
 				/* SATA PWR */
 				MX6QDL_PAD_ENET_TX_EN__GPIO1_IO28 0x80000000
 				MX6QDL_PAD_EIM_A22__GPIO2_IO16 0x80000000
