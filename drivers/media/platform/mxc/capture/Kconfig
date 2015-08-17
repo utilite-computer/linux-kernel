@@ -36,6 +36,15 @@ config MXC_TVIN_ADV7180
 	---help---
 	  If you plan to use the adv7180 video decoder with your MXC system, say Y here.
 
+config MXC_TVP5150
+	tristate "Texas Instruments TVP5150 video decoder"
+	depends on VIDEO_V4L2 && I2C
+	---help---
+	  Support for the Texas Instruments TVP5150 video decoder.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called tvp5150_mxc.
+
 choice
 	prompt "Select Overlay Rounting"
 	default MXC_IPU_DEVICE_QUEUE_SDC
@@ -81,6 +90,15 @@ config MXC_IPU_CSI_ENC
 	  Use case IPU_CSI_ENC:
 		Get raw image with CSI from smart sensor for encoder.
 		CSI -> MEM
+
+config MXC_IPU_VDI_ENC
+	tristate "VDI Encoder library"
+	depends on VIDEO_MXC_IPU_CAMERA
+	default y
+	---help---
+	  Use case IPU_VDI_ENC:
+		Deinterlace image from CSI from smart sensor for encoder.
+		CSI -> VDI -> MEM
 endmenu
 
 endif

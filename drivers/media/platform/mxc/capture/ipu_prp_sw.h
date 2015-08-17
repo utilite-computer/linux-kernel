@@ -26,6 +26,8 @@ int csi_enc_select(void *private);
 int csi_enc_deselect(void *private);
 int prp_enc_select(void *private);
 int prp_enc_deselect(void *private);
+int vdi_enc_select(void *private);
+int vdi_enc_deselect(void *private);
 #ifdef CONFIG_MXC_IPU_PRP_VF_SDC
 int prp_vf_sdc_select(void *private);
 int prp_vf_sdc_deselect(void *private);

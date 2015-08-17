@@ -50,6 +50,17 @@
 				pagesize = <16>;
 			};
 
+			adv5150: adv5150@5c {
+				compatible = "ti,tvp5150";
+				reg = <0x5c>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&pinctrl_ipu1_3>;
+				clocks = <&clks 201>;
+				clock-names = "csi_mclk";
+				csi_id = <0>;
+				mclk = <27000000>;
+				mclk_source = <0>;
+			};
 		};
 
 		i2c@1 {

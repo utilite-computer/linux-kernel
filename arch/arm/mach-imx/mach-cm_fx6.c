@@ -17,6 +17,7 @@
 #include <linux/of.h>
 #include <linux/of_address.h>
 #include <linux/mfd/syscon.h>
+#include <linux/mfd/syscon/imx6q-iomuxc-gpr.h>
 #include <linux/regmap.h>
 #include "common.h"
 #include "hardware.h"
@@ -64,6 +65,32 @@ static void revision_from_anatop(void)
 	system_rev = fsl_system_rev;
 }
 
+static void __init cm_fx6_csi_mux_init(void)
+{
+	/*
+	 * MX6Q sbc-fx6 board:
+	 * IPU1 CSI0 connects to parallel interface.
+	 * Set GPR1 bit 19 to 0x1.
+	 *
+	 * MX6DL sbc-fx6 board:
+	 * IPU1 CSI0 connects to parallel interface.
+	 * Set GPR13 bit 0-2 to 0x4.
+	 */
+	struct regmap *gpr;
+
+	gpr = syscon_regmap_lookup_by_compatible("fsl,imx6q-iomuxc-gpr");
+	if (!IS_ERR(gpr)) {
+		if (of_machine_is_compatible("fsl,imx6q"))
+			regmap_update_bits(gpr, IOMUXC_GPR1, 1 << 19, 1 << 19);
+		else if (of_machine_is_compatible("fsl,imx6dl"))
+			regmap_update_bits(gpr, IOMUXC_GPR13, 0x7, 0x4);
+	} else {
+		pr_err("%s(): failed to find fsl,imx6q-iomux-gpr regmap\n",
+		       __func__);
+	}
+}
+
+
 static int cm_fx6_init(void)
 {
 	struct device_node *np;
@@ -75,6 +102,7 @@ static int cm_fx6_init(void)
 
 	_system_rev = system_rev;
 	revision_from_anatop();
+	cm_fx6_csi_mux_init();
 
 	return 0;
 }
